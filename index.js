@@ -43,6 +43,10 @@ async function register (server, options) {
   } else {
     options.stream = options.stream || process.stdout
     var stream = options.stream || process.stdout
+    options = {
+      ...options,
+      prettyPrint: { colorize: true, translateTime: true }
+    }
     logger = pino(options, stream)
   }
 
